@@ -1,6 +1,7 @@
 public interface ILinkedList<T>
 {
     bool IsEmpty();
+    int Sum();
     T Value {get; set;}
     ILinkedList<T> Tail {get; set;}
 }
@@ -23,12 +24,34 @@ public class Node<T> : ILinkedList<T>
     {
         return false;
     }
+
+    public int Sum()
+    {
+        try{
+            int output = 0;
+            bool loop = true;
+            while (loop)
+            {
+
+            }
+        }
+        catch
+        {
+            System.Console.WriteLine("Sum cant be used on non int/floats");
+        }
+        return 0;
+    }
 }
 
 public class Empty<T> : ILinkedList<T>
 {
-    T ILinkedList<T>.Value { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    ILinkedList<T> ILinkedList<T>.Tail { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    T ILinkedList<T>.Value { get => default(T); set => throw new System.NotImplementedException(); }
+    ILinkedList<T> ILinkedList<T>.Tail { get => default(ILinkedList<T>); set => throw new System.NotImplementedException(); }
+
+    public int Sum()
+    {
+        return 0;
+    }
 
     bool ILinkedList<T>.IsEmpty()
     {

@@ -1,60 +1,44 @@
-public interface ILinkedList<T>
+namespace C_Lib
 {
-    bool IsEmpty();
-    int Sum();
-    T Value {get; set;}
-    ILinkedList<T> Tail {get; set;}
-}
-
-public class Node<T> : ILinkedList<T>
-{
-    T ILinkedList<T>.Value { get => this.value; set => this.value = value; }
-    ILinkedList<T> ILinkedList<T>.Tail { get => this.tail; set => this.tail = value; }
-
-    public T value;
-    public ILinkedList<T> tail;
-    
-    public Node(T value, ILinkedList<T> tail)
+    public interface ILinkedList<T>
     {
-        this.value = value;
-        this.tail = tail;
+        bool IsEmpty();
+        T Value {get; set;}
+        ILinkedList<T> Tail {get; set;}
     }
 
-    bool ILinkedList<T>.IsEmpty()
+    public class Node<T> : ILinkedList<T>
     {
-        return false;
-    }
+        T ILinkedList<T>.Value { get => this.value; set => this.value = value; }
+        ILinkedList<T> ILinkedList<T>.Tail { get => this.tail; set => this.tail = value; }
 
-    public int Sum()
-    {
-        try{
-            int output = 0;
-            bool loop = true;
-            while (loop)
-            {
-
-            }
-        }
-        catch
+        public T value;
+        public ILinkedList<T> tail;
+        
+        public Node(T value, ILinkedList<T> tail)
         {
-            System.Console.WriteLine("Sum cant be used on non int/floats");
+            this.value = value;
+            this.tail = tail;
         }
-        return 0;
-    }
-}
 
-public class Empty<T> : ILinkedList<T>
-{
-    T ILinkedList<T>.Value { get => default(T); set => throw new System.NotImplementedException(); }
-    ILinkedList<T> ILinkedList<T>.Tail { get => default(ILinkedList<T>); set => throw new System.NotImplementedException(); }
+        bool ILinkedList<T>.IsEmpty()
+        {
+            return false;
+        }
 
-    public int Sum()
-    {
-        return 0;
+        
     }
 
-    bool ILinkedList<T>.IsEmpty()
+    public class Empty<T> : ILinkedList<T>
     {
-        return true;
+        T ILinkedList<T>.Value { get => default(T); set => throw new System.NotImplementedException(); }
+        ILinkedList<T> ILinkedList<T>.Tail { get => default(ILinkedList<T>); set
+            {
+                throw new System.NotImplementedException();
+            }}
+        bool ILinkedList<T>.IsEmpty()
+        {
+            return true;
+        }
     }
 }

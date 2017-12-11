@@ -6,7 +6,8 @@ namespace C_Lib
     {
         static void Main(string[] args)
         {
-            ILinkedList<string> test = new Node<string>("test", new Node<string>("test1", new Empty<string>()));   
+            //ILinkedList<string> test = new Node<string>("test", new Node<string>("test1", new Empty<string>()));
+            ILinkedList<int> test = new Node<int>(1, new Node<int>(2, new Empty<int>()));   
 
             while (!test.IsEmpty())
             {
